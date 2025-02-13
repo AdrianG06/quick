@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-export default function Calculator() {
+function Calculator() {
   const [input, setInput] = useState("");
 
   const handleClick = (value) => {
@@ -42,3 +42,5 @@ export default function Calculator() {
     </div>
   );
 }
+
+export default Calculator;
