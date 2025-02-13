@@ -2,14 +2,12 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-
-
 function Weather() {
-
-  const fetchWeather = () => {
       const [ city, setCity ] = useState('');
       const [ weather, setWeather ] = useState(null)
       const API_KEY = '726aceb2dc1e3578f83341eeae7fa27b'
+
+
 
       const fetchWeather = async () => {
         try {
@@ -19,7 +17,7 @@ function Weather() {
           console.error("Error fetching weather data:", error);
         }
       }
-    }
+    
 
       return (
         <div className="weather-container">
@@ -27,19 +25,16 @@ function Weather() {
           <input type='text' placeholder="Enter city" value={city} onChange={(e) => setCity(e.target.value)} />
           <button onClick={fetchWeather}>Get Weather</button>
 
-          {Weather && (
+          {weather && (
             <div className="weather-info">
               <h2>{weather.name}</h2>
               <p>Temperature: {weather.main.temp}°C</p>
               <p>Humidity: {weather.main.humidity}%</p>
               <p>Condition: {weather.weather[0].description}</p>
-              
-        </div>
+            </div>
           )}
         </div>
       );
  }
-
-
 
 export default Weather;
